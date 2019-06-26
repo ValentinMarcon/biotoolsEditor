@@ -108930,11 +108930,13 @@ function get_pull_requests(tool_name) {
 
 function get_tool_entry(branch_name, tool_name, my_repo, _callback) {
   my_repo.getContents(branch_name, 'data/' + tool_name + '/' + tool_name + '.json', true, function (error, res) {
+    _callback(res);
+
+    console.log("toto");
+
     if (!res) {
       throw new Error('Error getting content of ' + tool_name + ' in ' + branch_name + "\n" + error);
     }
-
-    _callback(res);
   });
 } // -----------------------------------------------------
 // PRINT_TOOL
@@ -109853,7 +109855,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38487" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41795" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
